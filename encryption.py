@@ -14,16 +14,22 @@ penultimate = ['/', '6', '?', '5', 'o', '|', 'T', ':', 'l', 'm', 'a', 'r', 'O', 
 
 finale = ['*', 'f', '_', 'h', 'X', 'N', 's', ',', '~', 'B', '4', 'V', '5', '&', '9', '>', 'W', ';', 'E', 'i', 'T', 'e', 'o', 'q', 'K', 'R', '[', '7', '^', '@', ':', 'y', 'd', '%', 'D', 'G', 'p', 'H', 'j', '|', '`', 'L', '"', '?', '#', '/', 'r', 'v', '=', 'a', 'x', 'c', 'A', '.', 'P', 'u', 'g', 't', ')', 'w', '+', 'm', '<', '3', 'Y', 'b', 'n', 'k', '}', '8', '(', 'Q', 'I', '{', 'F', 'M', '1', ']', ' ', 'J', 'Z', 'S', '$', 'z', 'U', '2', '!', '-', 'l', 'C', 'O', '0', '6']
 
-#List of 93 supported characters and symbols in orignial order:
-#['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Q', 'W','E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '[', ']', '{', '}', '|', ';', ':', '"', ',', '.', '/', '<', '>', '?', '`', '~', ' ']
-
-#The Encryptor
-
+#List of 93 supported characters and symbols in original order:
 list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Q', 'W','E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '[', ']', '{', '}', '|', ';', ':', '"', ',', '.', '/', '<', '>', '?', '`', '~', ' ']
 
+#Encryptor:
 
 def encrypt1(message,key):
   encrypted_message = ''
-  for letter in message:
-    encrypted_message = encrypted_message + key[list.index(letter)]
-  return encrypted_message 
+  for character in message:
+    encrypted_message = encrypted_message + key[list.index(character)]
+  return encrypted_message
+
+#Decryptor:
+
+def decrypt1(enc_mssg, key):
+  original_message = ''
+  for character in enc_mssg:
+    original_message = original_message + list[key.index(character)]
+  return original_message
+ 
