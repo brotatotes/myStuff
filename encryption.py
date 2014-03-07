@@ -23,6 +23,12 @@ def testKey():
   print 'finale key has ' + str(len(finale)) + ' characters.'
   print 'There are ' + str(len(list)) + ' supported characters.'
 
+#Generates a new key:
+import random
+def newKey():
+  newKey = list
+  random.shuffle(newKey)
+  return newKey
 
 #List of 94 supported characters and symbols in original order:
 list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Q', 'W','E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '[', ']', '{', '}', '|', ';', ':', '"', "'", ',', '.', '/', '<', '>', '?', '`', '~', ' ']
