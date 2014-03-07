@@ -14,15 +14,26 @@ penultimate = ['/', '6', '?', '5', 'o', "'", '|', 'T', ':', 'l', 'm', 'a', 'r', 
 
 finale = ['*', 'f', '_', 'h', 'X', 'N', 's', ',', '~', 'B', '4', 'V', '5', '&', '9', '>', 'W', ';', 'E', 'i', 'T', 'e', 'o', 'q', 'K', 'R', '[', '7', '^', '@', ':', 'y', "'", 'd', '%', 'D', 'G', 'p', 'H', 'j', '|', '`', 'L', '"', '?', '#', '/', 'r', 'v', '=', 'a', 'x', 'c', 'A', '.', 'P', 'u', 'g', 't', ')', 'w', '+', 'm', '<', '3', 'Y', 'b', 'n', 'k', '}', '8', '(', 'Q', 'I', '{', 'F', 'M', '1', ']', ' ', 'J', 'Z', 'S', '$', 'z', 'U', '2', '!', '-', 'l', 'C', 'O', '0', '6']
 
-#Tests Key Validity:
-def testKey():
+#Displays length of default keys:
+def keyStatus():
   print 'blowtorch key has ' + str(len(blowtorch)) + ' characters.'
   print 'clownfish key has ' + str(len(clownfish)) + ' characters.'
   print 'legomovie key has ' + str(len(clownfish)) + ' characters.'
   print 'penultimate key has ' + str(len(penultimate)) + ' characters.'
   print 'finale key has ' + str(len(finale)) + ' characters.'
   print 'There are ' + str(len(list)) + ' supported characters.'
-
+  
+#Checks key validity:
+def testKey(key):
+  if len(key) != len(list):
+    print 'INVALID KEY'
+    return -1
+  for character in list:
+    if key.count(character) != 1:
+      print 'INVALID KEY'
+      return -1
+  print 'VALID KEY'
+  return 1
 #Generates a new key:
 import random
 def newKey():
@@ -34,19 +45,23 @@ def newKey():
 list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Q', 'W','E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '[', ']', '{', '}', '|', ';', ':', '"', "'", ',', '.', '/', '<', '>', '?', '`', '~', ' ']
 
 
-#Encryptor:
+#Encryptor(s):
 
 def encrypt1(message,key):
+  if testKey(key) == -1:
+    raise SystemExit(0)
   encrypted_message = ''
   for character in message:
     encrypted_message = encrypted_message + key[list.index(character)]
   return encrypted_message
 
-#Decryptor:
+#Decryptor(s):
 
 def decrypt1(enc_mssg, key):
+  if testKey(key) == -1:
+    raise SystemExit(0)
   original_message = ''
   for character in enc_mssg:
     original_message = original_message + list[key.index(character)]
   return original_message
- 
+
